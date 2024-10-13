@@ -53,7 +53,7 @@ def speak(text, filename):
 
         # Write audio data to .wav file
 #        with wave.open(filename, 'wb') as wf:
-        st.audio(audio_data, sample_rate=24000)
+        st.audio(audio_data, format='audio/wav', sample_rate=24000)
 #            wf.setnchannels(1)  # Mono audio
 #            wf.setsampwidth(pyaudio.PyAudio().get_sample_size(pyaudio.paInt16))  # Sample width for 16-bit audio
 
