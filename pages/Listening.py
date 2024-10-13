@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_extras.stoggle import stoggle
 import re
 import os
+import io
 import openai
 from datetime import datetime
 from io import StringIO
