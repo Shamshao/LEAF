@@ -61,8 +61,8 @@ def speak(text, filename):
 #            wf.writeframes(audio_data)  # Write the PCM data to the .wav file
 
 #        st.write(f"Audio saved as {filename}")
-#    except Exception as e:
-#        st.error(f"An error occurred while generating the audio file: {e}")
+    except Exception as e:
+        st.error(f"An error occurred while generating the audio file: {e}")
 
 def save_text(text, text_type, original_filename=None):
     """Save the text to a file in the 'listening' directory."""
