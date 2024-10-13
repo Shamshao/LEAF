@@ -7,7 +7,7 @@ from datetime import datetime
 from io import StringIO
 import numpy as np
 import wave
-import pyaudio
+#import pyaudio
 from faster_whisper import WhisperModel
 
 # Set OpenAI API key
@@ -25,7 +25,7 @@ def speak(text, filename):
     """Generate and save audio using your provided method."""
     try:
         # Initialize PyAudio for later use (if needed)
-        player_stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
+#        player_stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
         stream_start = False
         # Placeholder to collect PCM audio chunks
         audio_chunks = []
@@ -53,10 +53,12 @@ def speak(text, filename):
 
         # Write audio data to .wav file
         with wave.open(filename, 'wb') as wf:
-            wf.setnchannels(1)  # Mono audio
-            wf.setsampwidth(pyaudio.PyAudio().get_sample_size(pyaudio.paInt16))  # Sample width for 16-bit audio
-            wf.setframerate(24000)  # Sample rate
-            wf.writeframes(audio_data)  # Write the PCM data to the .wav file
+            st.audio(audio_data, sample_rate=24000)
+#            wf.setnchannels(1)  # Mono audio
+#            wf.setsampwidth(pyaudio.PyAudio().get_sample_size(pyaudio.paInt16))  # Sample width for 16-bit audio
+
+#wf.setframerate(24000)  # Sample rate
+#            wf.writeframes(audio_data)  # Write the PCM data to the .wav file
 
         st.write(f"Audio saved as {filename}")
     except Exception as e:
