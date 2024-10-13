@@ -52,17 +52,17 @@ def speak(text, filename):
         audio_array = np.frombuffer(audio_data, dtype=np.int16)
 
         # Write audio data to .wav file
-        with wave.open(filename, 'wb') as wf:
-            st.audio(audio_data, sample_rate=24000)
+#        with wave.open(filename, 'wb') as wf:
+        st.audio(audio_data, sample_rate=24000)
 #            wf.setnchannels(1)  # Mono audio
 #            wf.setsampwidth(pyaudio.PyAudio().get_sample_size(pyaudio.paInt16))  # Sample width for 16-bit audio
 
 #wf.setframerate(24000)  # Sample rate
 #            wf.writeframes(audio_data)  # Write the PCM data to the .wav file
 
-        st.write(f"Audio saved as {filename}")
-    except Exception as e:
-        st.error(f"An error occurred while generating the audio file: {e}")
+#        st.write(f"Audio saved as {filename}")
+#    except Exception as e:
+#        st.error(f"An error occurred while generating the audio file: {e}")
 
 def save_text(text, text_type, original_filename=None):
     """Save the text to a file in the 'listening' directory."""
