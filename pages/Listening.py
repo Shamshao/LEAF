@@ -53,7 +53,19 @@ def speak(text, filename):
 
         # Write audio data to .wav file
 #        with wave.open(filename, 'wb') as wf:
-        st.audio(audio_data, format='audio/wav', sample_rate=24000)
+                 # Convert the byte stream to an in-memory WAV file
+        wav_io = io.BytesIO()
+        with wave.open(wav_io, 'wb') as wf:
+            wf.setnchannels(1)  # Mono audio
+            wf.setsampwidth(2)   # Sample width in bytes (2 bytes for 16-bit PCM)
+            wf.setframerate(24000)  # Sample rate
+            wf.writeframes(audio_data)  # Write the PCM data
+
+        # Move the pointer to the beginning of the in-memory file
+        wav_io.seek(0)
+
+        # Play the audio using st.audio
+        st.audio(wav_io.read(), format='audio/wav')
 #            wf.setnchannels(1)  # Mono audio
 #            wf.setsampwidth(pyaudio.PyAudio().get_sample_size(pyaudio.paInt16))  # Sample width for 16-bit audio
 
