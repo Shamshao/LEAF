@@ -3,3 +3,5 @@ fastapi==0.115.0
 openai==1.46.0
 faster-whisper==1.0.2
 pydub==0.25.1  
+streamlit==1.37.1
+audio-recorder-streamlit==0.0.10
