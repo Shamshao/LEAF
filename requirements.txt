@@ -1,0 +1,3 @@
+streamlit-extras
+fastapi[all]
+openai
